@@ -22,6 +22,7 @@ function App() {
           <Routes>
               <Route path="/" Component={welcome}/>
               <Route path="/login" Component={Login}/>
+              <Route path="/signup" Component={SignUp}/>
               <Route path="/home" Component={Home}/>
               <Route path="/sleep" Component={Sleep}/>
               <Route path="/meditation" Component={Meditation}/>

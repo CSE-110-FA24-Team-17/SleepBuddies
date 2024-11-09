@@ -1,10 +1,12 @@
 import React from "react";
 import Login from "../elements/Login";
 import Signup from "../elements/Signup";
-const welcome = () => {
+import "../../css/welcome.css";
+
+const Welcome = () => {
     return (
         <>
-            <h1>Welcome to Sleep Buddies </h1>
+            <h1>Welcome to Sleep Buddies</h1>
             <div className="welcome_page-div">
                 <Login />
                 <Signup />
@@ -13,4 +15,4 @@ const welcome = () => {
     );
 };
 
-export default welcome;
+export default Welcome;

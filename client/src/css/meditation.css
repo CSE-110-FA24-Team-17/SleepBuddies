@@ -10,9 +10,9 @@
     padding: 20px;
     position: relative;
     overflow: hidden;
-  }
-  
-  .cloud {
+}
+
+.cloud {
     position: absolute;
     top: 10%;
     left: 20%;
@@ -24,9 +24,9 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     z-index: -1;
     animation: moveClouds 60s linear infinite;
-  }
-  
-  .meditation-content {
+}
+
+.meditation-content {
     text-align: center;
     background-color: rgba(255, 255, 255, 0.9);
     border-radius: 30px;
@@ -35,25 +35,25 @@
     width: 90%;
     max-width: 600px;
     animation: fadeIn 1s ease-out;
-  }
-  
-  .title {
+}
+
+.title {
     font-size: 48px;
     color: #4c9ed9;
     margin-bottom: 30px;
     font-weight: bold;
     font-family: 'Nunito', sans-serif;
-  }
-  
-  .content {
+}
+
+.content {
     font-size: 24px;
     color: #555;
     margin-bottom: 40px;
     line-height: 1.5;
     font-family: 'Quicksand', sans-serif;
-  }
-  
-  .button {
+}
+
+.button {
     background-color: white;
     color: #4c9ed9;
     padding: 25px 50px;
@@ -68,20 +68,20 @@
     font-family: 'Quicksand', sans-serif;
     border: none;
     outline: none;
-  }
-  
-  .button:hover {
+}
+
+.button:hover {
     transform: scale(1.1);
-  }
-  
-  .arrow-container {
+}
+
+.arrow-container {
     display: flex;
     justify-content: space-between;
     width: 100%;
     max-width: 600px;
-  }
-  
-  .arrow {
+}
+
+.arrow {
     background-color: white;
     color: #4c9ed9;
     padding: 20px;
@@ -94,13 +94,13 @@
     margin: 20px;
     border: none;
     outline: none;
-  }
-  
-  .arrow:hover {
+}
+
+.arrow:hover {
     transform: scale(1.1);
-  }
-  
-  .home-button {
+}
+
+.home-button {
     position: absolute;
     top: 20px;
     right: 20px;
@@ -115,20 +115,20 @@
     transition: all 0.3s ease;
     border: none;
     outline: none;
-  }
-  
-  .home-button:hover {
+}
+
+.home-button:hover {
     background-color: #4c9ed9;
     transform: scale(1.1);
-  }
-  
-  .thank-you {
+}
+
+.thank-you {
     font-size: 28px;
     color: #ffb347;
     font-weight: bold;
     font-family: 'Nunito', sans-serif;
     padding-top: 30px;
-  }
+}
 
 
   

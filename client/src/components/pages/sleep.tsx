@@ -2,9 +2,9 @@ import React from "react";
 
 import '../../css/Sleep.css';
 
-import { SleepLog } from "../elements/SleepAnalytics/SleepLog";
-import { Chart } from "../elements/SleepAnalytics/Chart";
-import { Statistics } from "../elements/SleepAnalytics/Statistics";
+import {SleepLog} from "../elements/SleepAnalytics/SleepLog";
+import {Chart} from "../elements/SleepAnalytics/Chart";
+import {Statistics} from "../elements/SleepAnalytics/Statistics";
 
 const Sleep = () => {
     return (

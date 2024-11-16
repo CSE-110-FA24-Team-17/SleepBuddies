@@ -7,9 +7,9 @@ export const SleepLog = () => {
 
             <h4>Hours Slept: 5</h4>
 
-            <h4>Sleep Goal: 6</h4>
+            <h4>Sleep Goal: 8</h4>
 
-            <h4>Percent Achieved: 83.33%</h4>
+            <h4>Percent Achieved: 62.50%</h4>
         </>
     );
 };

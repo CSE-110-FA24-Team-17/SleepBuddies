@@ -16,6 +16,18 @@ const initDB = async () => {
             cost INTEGER NOT NULL
         );
     `);
+
+    // Create the "journal" table for mood entries
+    await db.exec(`
+        CREATE TABLE IF NOT EXISTS journal (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            mood TEXT NOT NULL,
+            entry TEXT NOT NULL,
+            timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
+        );
+    `);
+
+    
     return db;
 };
 

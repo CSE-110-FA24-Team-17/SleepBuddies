@@ -7,15 +7,35 @@ const initDB = async () => {
         filename: "database.sqlite",
         driver: sqlite3.Database,
     });
-    // Create a "budget" table if it doesn't exist
+
     // TODO change to actual format
     await db.exec(`
-        CREATE TABLE IF NOT EXISTS expenses (        
+        CREATE TABLE IF NOT EXISTS main (        
             id TEXT PRIMARY KEY,
-            description TEXT NOT NULL,
-            cost INTEGER NOT NULL
+            account TEXT NOT NULL,
+            password TEXT NOT NULL
         );
     `);
+
+    // Table to store each user's sleep data
+    //account creation will be added later
+    await db.exec(`
+        CREATE TABLE IF NOT EXISTS sleeplog (
+            account TEXT,
+            date DATE,
+            hours INT,
+        );
+    `);
+    // await db.exec(`
+    //     CREATE TABLE IF NOT EXISTS sleeplog (
+    //         account TEXT,
+    //         date DATE,
+    //         hours INT,
+    //         PRIMARY KEY (account, DATE),
+    //         FOREIGN KEY (account) REFERENCES main(account)
+    //     );
+    // `);
+
     return db;
 };
 

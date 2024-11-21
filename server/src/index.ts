@@ -1,6 +1,8 @@
 import { Response } from "express";
 import initDB from "./createTable";
 
+import { createSleepEndpoints } from "./sleep/sleep-endpoints";
+
 const express = require("express");
 const cors = require("cors");
 
@@ -22,6 +24,8 @@ app.listen(port, () => {
   app.get("/", (req: Request, res: Response) => {
     res.status(200).send({ "data": "Hello, TypeScript Express!" });
   });
+  
+  createSleepEndpoints(app, db); //access to database from sleep page
 })();
 
 export{}

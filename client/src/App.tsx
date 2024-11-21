@@ -5,6 +5,7 @@ import "./css/home.css"
 
 import {Route, Routes} from "react-router-dom";
 import Login from "./components/pages/login";
+import signup from "./components/pages/signup";
 import Home from "./components/pages/home";
 import Sleep from "./components/pages/sleep";
 import Meditation from "./components/pages/meditation";
@@ -21,6 +22,7 @@ function App() {
             <Routes>
                 <Route path="/" Component={welcome}/>
                 <Route path="/login" Component={Login}/>
+                <Route path="/signup" Component={signup}/>
                 <Route path="/home" Component={Home}/>
                 <Route path="/sleep" Component={Sleep}/>
                 <Route path="/meditation" Component={Meditation}/>

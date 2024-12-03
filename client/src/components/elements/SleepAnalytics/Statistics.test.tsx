@@ -3,7 +3,9 @@ import { Statistics } from './Statistics';
 
 describe("Statistics for Weekly Hours input", () => {
     test("Test Statistics page renders", () => {
-        render(<Statistics />);
+        render(<Statistics updateSleepData={function (newHoursSlept: number[]): void {
+            throw new Error('Function not implemented.');
+        } } />);
         const Sunday = screen.getByText(/Sunday/);
         expect(Sunday).toBeInTheDocument();
 
@@ -15,7 +17,9 @@ describe("Statistics for Weekly Hours input", () => {
     });
 
     test("Test Inputting start and end time", () => {
-        render(<Statistics />);
+        render(<Statistics updateSleepData={function (newHoursSlept: number[]): void {
+            throw new Error('Function not implemented.');
+        } } />);
 
         let MondayStart = screen.getByTestId("startMonday");
         expect(MondayStart).toBeInTheDocument();
@@ -36,7 +40,9 @@ describe("Statistics for Weekly Hours input", () => {
     });
 
     test("Test Finding Average Slept Hours", () => {
-        render(<Statistics />);
+        render(<Statistics updateSleepData={function (newHoursSlept: number[]): void {
+            throw new Error('Function not implemented.');
+        } } />);
 
         const TuesdayStart = screen.getByTestId("startTuesday");
         fireEvent.change(TuesdayStart, {target: {value: "08:00"}});
@@ -55,3 +61,7 @@ describe("Statistics for Weekly Hours input", () => {
     });
 
 });
+
+function updateSleepData(newHoursSlept: number[]): void {
+    throw new Error('Function not implemented.');
+}

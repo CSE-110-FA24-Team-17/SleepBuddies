@@ -3,7 +3,7 @@ import React from "react";
 export const SleepLog = () => {
     return (
         <>
-            <h2>Daily sleep</h2>
+            <h2>Your Sleep Journey</h2>
 
             <h4>Hours Slept: 5</h4>
 

@@ -21,7 +21,6 @@ const initDB = async () => {
     //account creation will be added later
     await db.exec(`
         CREATE TABLE IF NOT EXISTS sleeplog (
-            account TEXT,
             date DATE,
             hours INT,
         );

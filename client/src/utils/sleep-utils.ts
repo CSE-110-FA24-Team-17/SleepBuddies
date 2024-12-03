@@ -1,12 +1,10 @@
 type Log = {
-    account: string;
     date: Date;
     hours: number;
 }
 
 export const addHours = async (log: Log): Promise<Log> => {
-    // 
-    const response = await fetch(`http://localhost:8080/sleep`, {
+    const response = await fetch(`http://localhost:8080/sleepLogs`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

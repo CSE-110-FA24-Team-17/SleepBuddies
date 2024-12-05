@@ -1,13 +1,13 @@
 /* Music Player Component */
 .component {
-  background-color: #a9a8da; /* Light purple for a modern aesthetic */
+  background-color: beige; /* #f5f5dc */
   width: 100%; /* Smaller width */
   max-width: 350px; /* Reduced max-width */
   margin: 1em auto;
   margin-top: 80px;
   margin-bottom: 80px;
   padding: 0.8em; /* Less padding for compact design */
-  border: 1px solid #6a69ae; /* Softer border color */
+  border: 1px solid black; 
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }

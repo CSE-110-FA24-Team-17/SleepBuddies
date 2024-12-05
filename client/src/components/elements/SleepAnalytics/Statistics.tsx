@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import { addHours } from "../../utils/sleep-utils";
 
-export const Statistics: React.FC = () => {
+export const Statistics: React.FC<{ updateSleepData: (newHoursSlept: number[]) => void }> = ({ updateSleepData }) => {
     const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
     // Store sleep and wake times as strings (in 24-hour format)
@@ -36,6 +37,24 @@ export const Statistics: React.FC = () => {
         const newHoursSlept = [...hoursSlept];
         if (sleepTime && wakeTime) {
             newHoursSlept[index] = calculateSleepDuration(sleepTime, wakeTime);
+
+            const dateObj = new Date(weekDates[index]).toISOString();
+            // const logs = await fetchHours();
+            // const logExists = logs.find((log: Log) => log.date === dateObj);
+            
+            // add to json
+            const entry = {
+                date: dateObj,
+                hours: newHoursSlept[index],
+            }
+
+            addHours(entry);
+
+            // if (logExists){
+            //     await updateHours(entry);
+            // } else {
+            //     await addHours(entry);
+            // }
         } else {
             newHoursSlept[index] = 0; // No data, set hours slept to 0
         }
@@ -47,10 +66,12 @@ export const Statistics: React.FC = () => {
         setWakeTimes(newWakeTimes);
         setHoursSlept(newHoursSlept);
         setAverageSleep(validDays.length > 0 ? totalSleep / validDays.length : 0); // Calculate average only for valid days
+
+        updateSleepData(newHoursSlept);  // Pass updated data to parent component
     };
 
     // Use useEffect to calculate the dates for the current week
-    useEffect(() => {
+    React.useEffect(() => {
         const today = new Date();
         const currentDay = today.getDay();
         const startOfWeek = new Date(today);
@@ -67,13 +88,14 @@ export const Statistics: React.FC = () => {
 
     return (
         <>
-            <h2>Sleeping Data</h2>
+            <h2>Sleeping Log</h2>
             <h3>Enter Sleep Time and Wake Up Time for Each Day:</h3>
             <div className="weekLog">
                 {daysOfWeek.map((day, index) => (
                     <div key={index}>
                         <label>{day} ({weekDates[index]}):</label>
                         <input
+                            className="smallInput"
                             data-testid={"start" + day}
                             type="time"
                             value={sleepTimes[index]}
@@ -81,16 +103,17 @@ export const Statistics: React.FC = () => {
                         />
                         <span> to </span>
                         <input
+                            className="smallInput"
                             data-testid={"end" + day}
                             type="time"
                             value={wakeTimes[index]}
                             onChange={(e) => handleTimeChange(index, sleepTimes[index], e.target.value)}
                         />
-                        <span> : {hoursSlept[index] > 0 ? hoursSlept[index].toFixed(2) : ""}</span>
+                        <span> : {hoursSlept[index] > 0 ? hoursSlept[index].toFixed(2) : ""} {"Hrs"}</span>
                     </div>
                 ))}
             </div>
-            <h3>Average Hours Slept this Week: {averageSleep.toFixed(2)}</h3>
+            <h3 data-testid="averageH">Average Hours Slept this Week: {averageSleep.toFixed(2)}</h3>
         </>
     );
 };

@@ -1,6 +1,9 @@
 import axios from "axios";
 import {API_BASE_URL, hashLength} from "../constants/constants";
 
+/**
+ * Gets the list of users and their account info from the database
+ */
 export const fetchUsers = async (): Promise<string[]> => {
     let userData: string[] | PromiseLike<string[]> = [];
     try {
@@ -15,6 +18,11 @@ export const fetchUsers = async (): Promise<string[]> => {
     return userData;
 };
 
+/**
+ * Checks if the username exists in the database
+ *
+ * @param username The username to check
+ */
 export const checkUsernameExists = async (username: string) => {
     const userData: string[] = await fetchUsers();
     for (let i = 0; i < userData.length; i++) {
@@ -26,6 +34,11 @@ export const checkUsernameExists = async (username: string) => {
     return false;
 }
 
+/**
+ * Gets the encrypted user password from the database
+ *
+ * @param username The user's username
+ */
 export const getUserHash = async (username: string) => {
     const userData: string[] = await fetchUsers();
     for (let i = 0; i < userData.length; i++) {

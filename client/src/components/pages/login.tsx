@@ -9,6 +9,7 @@ import DialogActions from "@mui/material/DialogActions";
 import Button from "@mui/material/Button";
 import {getUserHash} from "../utils/user-utils";
 import {Link} from "react-router-dom";
+import {setLoggedIn} from "../utils/user-cred";
 
 const LoginPage = () => {
     const [username, setUsername] = useState<string>('');
@@ -23,7 +24,7 @@ const LoginPage = () => {
 
         if (checkCorrectPassword(password, await hash)) {
             console.log("Login Successful");
-            // setLoggedIn(username);
+            setLoggedIn(username, await hash);
             openLoggedInBox(true);
         } else {
             console.log("Login Failed");

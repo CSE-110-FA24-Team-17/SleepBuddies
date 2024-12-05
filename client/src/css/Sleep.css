@@ -22,3 +22,16 @@ h2 {
 .weekLog {
     text-align: left;
 }
+
+.item .smallInput {
+    width: 120px; /* Adjust width as needed */
+    height: 20px; /* Adjust height as needed */
+    font-size: 12px; /* Optional: Adjust font size for better fit */
+    padding: 2px; /* Optional: Adjust padding */
+    margin-right: 5px; /* Optional: Add spacing between elements */
+}
+
+.feedback h2 {
+    color: white;
+}
+

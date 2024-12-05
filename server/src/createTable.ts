@@ -28,6 +28,14 @@ const initDB = async () => {
         );
     `);
 
+    //create table for storing dates and hours
+    await db.exec(`
+        CREATE TABLE IF NOT EXISTS sleepLogs (        
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            date TEXT NOT NULL,
+            hours DECIMAL NOT NULL
+        );
+    `);
 
     return db;
 };

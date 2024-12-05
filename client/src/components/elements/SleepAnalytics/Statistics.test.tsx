@@ -1,57 +1,49 @@
-import { render, screen, fireEvent } from '@testing-library/react';
-import { Statistics } from './Statistics';
+import { render, screen, fireEvent } from "@testing-library/react";
+import { Statistics } from "./Statistics";
 
-describe("Statistics for Weekly Hours input", () => {
-    test("Test Statistics page renders", () => {
-        render(<Statistics />);
-        const Sunday = screen.getByText(/Sunday/);
-        expect(Sunday).toBeInTheDocument();
+const updateSleepDataMock = jest.fn();
 
-        const Monday = screen.getByText(/Monday/);
-        expect(Monday).toBeInTheDocument();
-
-        const Friday = screen.getByText(/Friday/);
-        expect(Friday).toBeInTheDocument();
+describe("Statistics Component", () => {
+    beforeEach(() => {
+        updateSleepDataMock.mockClear();
     });
 
-    test("Test Inputting start and end time", () => {
-        render(<Statistics />);
+    test("renders the component correctly", () => {
+        render(<Statistics updateSleepData={updateSleepDataMock} />);
 
-        let MondayStart = screen.getByTestId("startMonday");
-        expect(MondayStart).toBeInTheDocument();
-
-        fireEvent.change(MondayStart, {target: {value: "08:00"}});
-        MondayStart = screen.getByTestId("startMonday");
-        expect(MondayStart).toHaveValue("08:00");
-
-        let MondayEnd = screen.getByTestId("endMonday");
-        expect(MondayEnd).toBeInTheDocument();
-
-        fireEvent.change(MondayEnd, {target: {value: "10:00"}});
-        MondayEnd = screen.getByTestId("endMonday");
-        expect(MondayEnd).toHaveValue("10:00");
-
-        const MondayHours = screen.getAllByText(/: 2.00/);
-        expect(MondayHours[0]).toBeInTheDocument();
+        // Check that the component renders the title and instructions
+        expect(screen.getByText(/Sleeping Log/)).toBeInTheDocument();
+        expect(screen.getByText(/Enter Sleep Time and Wake Up Time for Each Day/)).toBeInTheDocument();
     });
 
-    test("Test Finding Average Slept Hours", () => {
-        render(<Statistics />);
+    test("calculates hours slept correctly", () => {
+        render(<Statistics updateSleepData={updateSleepDataMock} />);
 
-        const TuesdayStart = screen.getByTestId("startTuesday");
-        fireEvent.change(TuesdayStart, {target: {value: "08:00"}});
+        const sleepInput = screen.getByTestId("startMonday") as HTMLInputElement;
+        const wakeInput = screen.getByTestId("endMonday") as HTMLInputElement;
 
-        const TuesdayEnd = screen.getByTestId("endTuesday");
-        fireEvent.change(TuesdayEnd, {target: {value: "10:00"}});
+        fireEvent.change(sleepInput, { target: { value: "22:00" } }); 
+        fireEvent.change(wakeInput, { target: { value: "06:00" } }); 
 
-        const ThursdayStart = screen.getByTestId("startThursday");
-        fireEvent.change(ThursdayStart, {target: {value: "13:00"}})
-
-        const ThursdayEnd = screen.getByTestId("endThursday");
-        fireEvent.change(ThursdayEnd, {target: {value: "18:00"}});
-
-        const AverageHours = screen.getAllByText("Average Hours Slept this Week: 3.50");
-        expect(AverageHours[0]).toBeInTheDocument();
+        // Check if the hours slept for Monday is calculated correctly
+        expect(screen.getByText(/: 8.00 Hrs/)).toBeInTheDocument();
     });
 
+    test("calculates the average hours slept correctly", () => {
+        render(<Statistics updateSleepData={updateSleepDataMock} />);
+
+        const mondaySleep = screen.getByTestId("startMonday") as HTMLInputElement;
+        const mondayWake = screen.getByTestId("endMonday") as HTMLInputElement;
+        const tuesdaySleep = screen.getByTestId("startTuesday") as HTMLInputElement;
+        const tuesdayWake = screen.getByTestId("endTuesday") as HTMLInputElement;
+
+        fireEvent.change(mondaySleep, { target: { value: "22:00" } });
+        fireEvent.change(mondayWake, { target: { value: "06:00" } });
+
+        fireEvent.change(tuesdaySleep, { target: { value: "23:00" } });
+        fireEvent.change(tuesdayWake, { target: { value: "07:00" } });
+
+        // Check if the average hours slept is updated correctly
+        expect(screen.getByText(/Average Hours Slept this Week: 8.00/)).toBeInTheDocument();
+    });
 });

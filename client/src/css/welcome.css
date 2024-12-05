@@ -1,27 +1,45 @@
-.button-text {
-    color: #001f3f;
-    font-size: 26px; 
+.welcome-header {
     text-align: center;
+    color: #FFFFFF;
+    font-size: 40px;
+    font-family: 'Quicksand', sans-serif;
+    text-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
     margin: 0;
-    padding: 0;
+    padding: 20px 0;
+}
+
+.welcome_page-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
 }
 
 .welcome_page-div .applet {
     background-color: #FFFFFF;
     color: #001f3f;
-    border-radius: 15px; 
-    width: 140px; 
-    height: 55px; 
+    border-radius: 15px;
+    width: 140px;
+    height: 55px;
     display: flex;
-    align-items: center; 
-    justify-content: center; 
-    margin: 15px; 
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0;
     cursor: pointer;
-    transition: all 0.3s ease; 
+    transition: all 0.3s ease;
 }
 
 .welcome_page-div .applet:hover {
     background-color: #E6E6E6;
     color: #001f3f;
-    transform: scale(1.1); 
+    transform: scale(1.1);
+}
+
+.button-text {
+    color: #001f3f;
+    font-size: 26px;
+    text-align: center;
+    margin: 0;
+    padding: 0;
 }

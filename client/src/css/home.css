@@ -1,23 +1,75 @@
-.projects-container-div {
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: white;
+    height: 60px;
+    padding: 0 40px;
+    z-index: 1000;
     display: flex;
-    flex-flow: row wrap;
-
-    position: relative;
-    margin: auto;
-    width: 700px;
-    padding: 40px 10px 10px;
-}
-
-.project-item-div {
-    margin: auto;
-    width: 400px;
-    max-width: 100%;
-
-    padding: 0 32px 32px 0;
-
-    border-radius: 8px;
-}
-
-* {
+    align-items: center;
+    justify-content: flex-start;
+    border-bottom: 2px solid #ccc;
     box-sizing: border-box;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+}
+
+.menu-list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 20px;
+}
+
+.menu-item {
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
+    padding: 0 10px;
+}
+
+.menu-item a {
+    text-decoration: none;
+    color: #001f3f;
+}
+
+.menu-item:hover a {
+    border-bottom: 2px solid #001f3f;
+}
+
+.greeting-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.greeting {
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.motivational-quote {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    max-width: 600px;
+    line-height: 1.5;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.sleep-buddy-image {
+    max-width: 300px;
+    height: auto;
+    margin-top: 20px;
+    padding: 0;
 }

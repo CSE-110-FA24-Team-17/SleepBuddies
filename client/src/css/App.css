@@ -5,7 +5,7 @@
 body {
     background: linear-gradient(135deg, #001f3f, #001f3f);
     color: #FFFFFF;
-    font-family: 'Quicksand', sans-serif; 
+    font-family: 'Quicksand', sans-serif;
     margin: 0;
     padding: 0;
 }
@@ -17,23 +17,23 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    text-align: center; 
+    text-align: center;
 }
 
 /* Header: "Sleep Buddies" */
 .App-header {
-    color: #FFFFFF; 
-    font-size: 40px; 
-    font-family: 'Quicksand', sans-serif; 
-    text-shadow: 0 3px 8px rgba(0, 0, 0, 0.3); 
-    margin-bottom: 15px; 
+    color: #FFFFFF;
+    font-size: 40px;
+    font-family: 'Quicksand', sans-serif;
+    text-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+    margin-bottom: 15px;
 }
 
 /* Clickable Items: General reusable styles for links or buttons */
 .clickable {
     text-decoration: none; /* Remove underline for links */
     will-change: transform;
-    transition: transform 450ms; 
+    transition: transform 450ms;
 }
 
 .clickable:hover {
@@ -55,20 +55,20 @@ body {
     width: 100%;
     opacity: 0;
     transition: 0.5s ease;
-    background-color: #ccc; 
+    background-color: #ccc;
 }
 
 .clickable:hover .overlay {
-    opacity: 1.0; 
-    width: 300px; 
+    opacity: 1.0;
+    width: 300px;
     height: 225px;
     margin: 20px;
-    border-radius: 20px; 
+    border-radius: 20px;
 }
 
 /* Overlay Text: Text inside hover overlays */
 .overlayText {
-    color: #001f3f; 
+    color: #001f3f;
     font-family: "Helvetica Neue", sans-serif;
     font-size: 25px;
     position: absolute;
@@ -76,4 +76,106 @@ body {
     left: 50%;
     transform: translate(-50%, -50%); /* Center the text */
     text-align: center;
+}
+
+/* Help Modal */
+.help-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    border-radius: 8px;
+    z-index: 1000;
+    width: 80%;
+    max-width: 500px;
+}
+
+.help-content {
+    text-align: left;
+    font-size: 16px;
+}
+
+.help-content h2 {
+    margin-top: 0;
+    font-size: 24px;
+    color: #333;
+}
+
+.help-content ul {
+    padding-left: 20px;
+}
+
+.help-content ul li {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+/* Close Button */
+.close-button {
+    background: none;
+    border: none;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #666;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.close-button:hover {
+    color: #000;
+}
+
+.menu {
+    display: flex; /* Horizontal alignment */
+    align-items: center; /* Vertically center items */
+    justify-content: space-between; /* Push items to the edges */
+    width: 100%; /* Ensure the nav spans the full width */
+}
+
+.menu-list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu-item {
+    margin-right: 0px; /* Space between menu items */
+}
+
+.help-button {
+    margin-right: 20px;
+    background-color: #3f9647;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.help-button:hover {
+    background-color: #307136;
+}
+
+.logout-button {
+    margin-right: 0px;
+    background-color: #c91717;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.logout-button:hover {
+    background-color: #713030;
 }

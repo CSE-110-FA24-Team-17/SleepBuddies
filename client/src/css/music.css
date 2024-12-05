@@ -1,0 +1,182 @@
+/* Global Body Styles */
+body {
+  background-color: #e5e5e5;
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  box-sizing: border-box; /* Ensures padding doesn't affect width/height */
+}
+
+/* General App Styling */
+.App {
+  text-align: center;
+}
+
+/* Music Player Component */
+.component {
+  background-color: beige; /* 40, 23, 80 and #a9a8da & #012140 */
+  width: 25%;
+  max-width: 600px;
+  margin: 1em auto;
+  padding-bottom: 2em;
+  border: 0.1px solid black;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Music Cover Image */
+.musicCover {
+  border-radius: 10%;
+  max-width: 80%;
+  height: auto;
+  margin-bottom: 0.2em; /* Ensure spacing below the image */
+}
+
+/* Title Styling */
+.title {
+  font-size: 4.5em;
+  color: #6a69ae;
+}
+
+/* Play/Pause Button Styling */
+.playButton {
+  background: none;
+  border: none;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.3s ease;
+}
+
+/* Play Button Hover Effect */
+.playButton:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+/* Subtitle Styling */
+.subTitle {
+  margin-top: 0.5em;
+    color: #4f4e8e;
+    font-size: 1.5em; /* Set a larger font size */
+    text-align: center; /* Center the text */
+  
+}
+
+
+
+/* Time and Progress Bar */
+/* .time {
+  margin: 0 auto;
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  color: #828282;
+  font-size: smaller;
+} */
+
+/* Range Slider (Timeline) */
+/* .timeline {
+  width: 80%;
+  background-color: #27ae60;
+} */
+
+/* Range Slider Styling */
+input[type="range"] {
+  background-color: #27ae60;
+  border-radius: 10px;
+  height: 6px;
+  width: 100%;
+  transition: background-color 0.3s ease;
+}
+
+/* Custom Range Styling for Different Browsers */
+input[type="range"]::-webkit-slider-runnable-track {
+  background-color: #ddd;
+  height: 6px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  background-color: #27ae60;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  border: none;
+}
+
+input[type="range"]::-moz-range-track {
+  background-color: #ddd;
+  height: 6px;
+}
+
+input[type="range"]::-moz-range-thumb {
+  background-color: #27ae60;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  border: none;
+}
+
+/* Playlist Switcher Container Styling */
+.playlistSwitcher {
+  display: flex;
+  justify-content: center; /* Center buttons horizontally */
+  align-items: center; /* Center buttons vertically */
+  margin-bottom: 20px; /* Space below the buttons */
+  gap: 50px; /* Equal spacing between buttons */
+}
+
+/* Playlist Switcher Button Styling */
+.playlistSwitcher button {
+  padding: 10px 20px; /* Consistent padding for uniform button size */
+  font-size: 1.2em; /* Ensure the font size is the same for all buttons */
+  background-color: #6a69ae; /* Purple background */
+  color: white;
+  border: 2px solid white; /* Purple border */
+  border-radius: 8px; /* Slightly rounded corners for a squared look */
+  cursor: pointer;
+  transition: all 0.3s ease; /* Smooth transition for hover and active effects */
+  text-transform: capitalize; /* Capitalize the first letter of each word */
+  box-shadow: 0 4px 8px #6a69ae; /* Subtle shadow for depth */
+  min-width: 160px; /* Fixed width to make buttons the same size */
+  text-align: center; /* Centers text inside the button */
+  height: 70px; /* Fixed height for uniform button size */
+}
+
+/* Hover effect for Playlist Switcher Buttons */
+.playlistSwitcher button:hover {
+  background-color: rgb(40, 23, 80); /* Darker purple on hover */
+  border-color: #6a69ae; /* Darker border on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Slightly bigger shadow on hover */
+}
+
+/* Active effect for Playlist Switcher Buttons */
+.playlistSwitcher button:active {
+  transform: scale(0.98); /* Shrinks slightly when clicked for a "press" effect */
+}
+
+/* Responsive Adjustments for Medium Screens */
+@media (max-width: 900px) {
+  .component {
+      width: 50%;
+  }
+}
+
+/* Responsive Adjustments for Small Screens */
+@media (max-width: 600px) {
+  .component {
+      width: 90%;
+  }
+
+  .musicCover {
+      width: 60%; /* Adjusted for better scaling */
+      margin-bottom: 10px;
+  }
+
+  .title {
+      font-size: 6em;
+  }
+
+  
+
+  
+}

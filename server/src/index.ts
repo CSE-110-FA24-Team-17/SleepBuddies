@@ -1,6 +1,7 @@
 import {Request, Response} from "express"; // Fix import
 import initDB from "./createTable";
 import {generateRandomHash} from "./utils/generateHash";
+import { createSleepEndpoints } from "./utils/sleep-endpoints";
 
 const express = require("express");
 const cors = require("cors");
@@ -93,8 +94,29 @@ app.use(express.json());
         }
     });
 
+    // Function to clear the journal entries when the server shuts down
+    const clearDatabaseOnExit = async () => {
+        try {
+            await db.run(`DELETE FROM users`);  // Deletes all entries in the users table
+            await db.run(`DELETE FROM journal`);  // Deletes all entries in the journal table
+            await db.run(`DELETE FROM sleepLogs`);  // Deletes all entries in the sleepLogs table
+            console.log("Database cleared!");
+        } catch (err) {
+            console.error("Error clearing the database:", err);
+        }
+    };
+
+    // Listen for server shutdown (SIGINT or SIGTERM)
+    process.on("SIGINT", async () => {
+        console.log("Server is shutting down...");
+        await clearDatabaseOnExit();
+        process.exit(0);
+    });
+
     // Start the server
     app.listen(port, () => {
         console.log(`Server running at http://localhost:${port}`);
     });
+
+    createSleepEndpoints(app, db);
 })(); 

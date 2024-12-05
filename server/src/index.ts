@@ -8,9 +8,19 @@ const cors = require("cors");
 const app = express();
 const port = 8080;
 
-// The hash for this session
+// The public hash for this session
 // TODO create secret for deployment
 const sessionHash = generateRandomHash(10);
+
+// set up rate limiter: maximum of five requests per minute
+const RateLimit = require('express-rate-limit');
+const limiter = RateLimit({
+    windowMs: 15 * 60 * 1000, // 15 minutes
+    max: 100, // max 100 requests per windowMs
+});
+
+// apply rate limiter to all requests
+app.use(limiter);
 
 app.use(cors());
 app.use(express.json());
@@ -21,7 +31,7 @@ app.use(express.json());
 
     // Root endpoint to test if the server is running
     app.get("/", (req: Request, res: Response) => {
-        res.status(200).send({data: "Hello, TypeScript Express!"});
+        res.status(200).send({data: "Database for SleepBuddies. Session hash: " + sessionHash});
     });
 
     // GET endpoint: Retrieve all user info

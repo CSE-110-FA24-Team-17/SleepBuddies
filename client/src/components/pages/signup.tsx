@@ -42,8 +42,9 @@ const SignUpPage = () => {
         } catch (error) {
             console.error("Error creating account:", error);
             alert("Failed to create account. Please try again.");
+            refreshPage();
+            return false;
         }
-        return false;
     };
 
     const handleCredentials = async (e: { preventDefault: () => void; }) => {
@@ -65,7 +66,7 @@ const SignUpPage = () => {
                 throw Error("Hash is null");
             }
             console.log("Hash Generated");
-            if (await handleSubmitInfo(username, hash).then(r => Promise<boolean>)) {
+            if (await handleSubmitInfo(username, hash)) {
                 openAccCreatedBox(true);
             }
         }

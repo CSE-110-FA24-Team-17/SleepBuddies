@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Pie } from 'react-chartjs-2';
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, ArcElement } from 'chart.js';
 import '../../css/journal.css';
+import {API_BASE_URL} from "../constants/constants";
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, ArcElement);
 
@@ -43,7 +44,7 @@ const Journal = () => {
   useEffect(() => {
     const fetchJournalEntries = async () => {
       try {
-        const response = await axios.get('http://localhost:8080/journal');
+        const response = await axios.get(API_BASE_URL + '/journal');
         setJournalEntries(response.data);
       } catch (error) {
         console.error('Error fetching journal entries:', error);
@@ -61,7 +62,7 @@ const Journal = () => {
     setLoading(true);
 
     try {
-      const response = await axios.post('http://localhost:8080/journal', { mood, entry });
+      const response = await axios.post(API_BASE_URL + '/journal', { mood, entry });
       console.log('Entry saved', response.data);
       setEntry('');
       setMood('');
